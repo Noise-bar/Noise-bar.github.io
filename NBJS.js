@@ -1,30 +1,23 @@
-var ac = new AudioContext();
-/* create the Web Audio graph, let's assume we have sound coming out of the
- * node `source` */
-var an = ac.createAnalyser();
-source.connect(an);
-/* Get an array that will hold our values */
-var buffer = new Uint8Array(an.fftSize);
+var p1 = document.getElementById("TL");
+var p2 = document.getElementById("L");
+var p3 = document.getElementById("N");
+var p4 = document.getElementById("O");
+var p5 = document.getElementById("VG");
 
-var p1 = document.getElementById("1");
-var p2 = document.getElementById("2");
-var p3 = document.getElementById("3");
-var p4 = document.getElementById("4");
-var p5 = document.getElementById("5");
+var ctx = new webkitAudioContext();
+var processor = ctx.createJavaScriptNode(2048, 1, 1)
 
 function f() {
-    /* note that getFloatTimeDomainData will be available in the near future,
-     * if needed. */
-    an.getByteTimeDomainData(buffer);
-    /* RMS stands for Root Mean Square, basically the root square of the
-    * average of the square of each value. */
-    var rms = 0;
-    for (var i = 0; i < buffer.length; i++) {
-        rms += buffer[i] * buffer[i];
+    processor.onaudioprocess = function (evt) {
+        var input = evt.inputBuffer.getChannelData(0);
+        var len = input.length;
+        var total = i = 0;
+        var rms;
+
+        while (i < len) total += Math.abs(input[i++])
+        rms = Math.sqrt(total / len)
     }
-    rms /= buffer.length;
-    rms = Math.sqrt(rms);
-    /* rms now has the value we want. */
+
     resetColours()
 
     if (rms > 65) {p1.style.color = "rgb(255, 0, 0)";}
