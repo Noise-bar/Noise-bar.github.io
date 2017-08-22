@@ -3,4 +3,4 @@ An application that provides visual feedback about how loud it is.
 
 Listens to the microphone and calculates the average loudness multiple times a second and updates coloured boxes based on the noise.
 
-NoiseBar Page: 13smith-oliver.github.io
+NoiseBar Page: https://13smith-oliver.github.io/
