@@ -4,8 +4,8 @@ var p3 = document.getElementById("N");
 var p4 = document.getElementById("O");
 var p5 = document.getElementById("VG");
 
-var ctx = new webkitAudioContext();
-var processor = ctx.createJavaScriptNode(2048, 1, 1)
+var ctx = new AudioContext();
+var processor = ctx.createScriptProcessor(2048, 1, 1)
 
 function f() {
     processor.onaudioprocess = function (evt) {
@@ -37,5 +37,3 @@ function resetColours() {
     p5.style.color = "rgb(110, 110, 110)";
 }
 requestAnimationFrame(f);
-/* start our hypothetical source. */
-source.start(0);
