@@ -31,4 +31,7 @@ function resetColours() {
     document.getElementById("O").style.backgroundColor = "rgb(110, 110, 110)";
     document.getElementById("VG").style.backgroundColor = "rgb(110, 110, 110)";
 }
-requestAnimationFrame(f);
+while (true) {
+    requestAnimationFrame(f);
+}
+
