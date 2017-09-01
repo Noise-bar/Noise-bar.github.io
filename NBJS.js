@@ -18,8 +18,7 @@ function f() {
         else if (rms > 55 && rms <= 60) { document.getElementById("N").style.backgroundColor = "rgb(255, 255, 0)"; }
         else if (rms > 50 && rms <= 55) { document.getElementById("O").style.backgroundColor = "rgb(173, 255, 47)"; }
         else if (rms < 50) { document.getElementById("VG").style.backgroundColor = "rgb(0, 255, 0)"; }
-
-        console.log(rms)
+        
         requestAnimationFrame(f);
     }
 }

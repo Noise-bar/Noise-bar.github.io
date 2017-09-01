@@ -1,12 +1,19 @@
-﻿* {
+textarea {
     font-family: Tahoma, Verdana, sans-serif;
-    min-height: 4%;
-    min-width: 10%;
-    border-width: 2px;
+    height: 20vh;
+    width: 100vw;
+    border-width: 1px;
     font-size: 20px;
     margin: 0;
     padding: 0;
     border-color: black;
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 20vh;
+    text-align: center;
+    overflow: hidden;
+    resize: none;
 }
 #TL {background-color: rgb(255, 0, 0);}
 #L {background-color: rgb(255, 140, 0);}
