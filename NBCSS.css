@@ -3,7 +3,7 @@ textarea {
     height: 20vh;
     width: 100vw;
     border-width: 1px;
-    font-size: 20px;
+    font-size: 10vh;
     margin: 0;
     padding: 0;
     border-color: black;
@@ -14,6 +14,11 @@ textarea {
     text-align: center;
     overflow: hidden;
     resize: none;
+}
+
+body{
+    margin: 0;
+    padding: 0;
 }
 #TL {background-color: rgb(255, 0, 0);}
 #L {background-color: rgb(255, 140, 0);}

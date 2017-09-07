@@ -1,27 +1,55 @@
-var ctx = new AudioContext();
-var processor = ctx.createScriptProcessor(2048, 1, 1)
+    +function () {
+    
+    var ctx = new AudioContext()
 
-function f() {
-    processor.onaudioprocess = function (evt) {
-        var input = evt.inputBuffer.getChannelData(0);
-        var len = input.length;
-        var total = i = 0;
-        var rms;
+    navigator.mediaDevices.getUserMedia = navigator.mediaDevices.getUserMedia ||
+                          navigator.webkitGetUserMedia ||
+                          navigator.mozGetUserMedia ||
+                          navigator.msGetUserMedia;
 
-        while (i < len) total += Math.abs(input[i++])
-        rms = Math.sqrt(total / len)
+    if (navigator.mediaDevices.getUserMedia) {
+        //works here
+        navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+            // 2048 sample buffer, 1 channel in, 1 channel out  
+            var processor = ctx.createScriptProcessor(16384, 1, 1)
+            var source
 
-        resetColours()
+            source = ctx.createMediaStreamSource(stream)
 
-        if (rms > 65) { document.getElementById("TL").style.backgroundColor = "rgb(255, 0, 0)"; }
-        else if (rms > 60 && rms <= 65) { document.getElementById("L").style.backgroundColor = "rgb(255, 140, 0)"; }
-        else if (rms > 55 && rms <= 60) { document.getElementById("N").style.backgroundColor = "rgb(255, 255, 0)"; }
-        else if (rms > 50 && rms <= 55) { document.getElementById("O").style.backgroundColor = "rgb(173, 255, 47)"; }
-        else if (rms < 50) { document.getElementById("VG").style.backgroundColor = "rgb(0, 255, 0)"; }
-        
-        requestAnimationFrame(f);
+            source.connect(processor)
+            //source.connect(ctx.destination)
+            processor.connect(ctx.destination)
+
+            // loop through PCM data and calculate average
+            // volume for a given 16384 sample buffer
+            processor.onaudioprocess = function (evt) {
+                var input = evt.inputBuffer.getChannelData(0)
+                  , len = input.length
+                  , total = i = 0
+                  , rms
+                while (i < len) total += Math.abs(input[i++])
+                rms = Math.sqrt(total / len)
+                rms = rms * 10
+                rms = Math.round(rms * 10) / 10
+
+                console.log(rms)
+
+                resetColours()
+
+                if (rms > 4) { document.getElementById("TL").style.backgroundColor = "rgb(255, 0, 0)"; }
+                else if (rms > 3 && rms <= 4) { document.getElementById("L").style.backgroundColor = "rgb(255, 140, 0)"; }
+                else if (rms > 2 && rms <= 3) { document.getElementById("N").style.backgroundColor = "rgb(255, 255, 0)"; }
+                else if (rms > 1 && rms <= 2) { document.getElementById("O").style.backgroundColor = "rgb(173, 255, 47)"; }
+                else if (rms <= 1) { document.getElementById("VG").style.backgroundColor = "rgb(0, 255, 0)"; }
+            }
+        }).catch(function (err) {
+            console.log('Error!', err);
+        });
+    } else {
+        alert("Error. getUserMedia not supported in this browser. :(")
     }
-}
+}()
+
 
 function resetColours() {
     document.getElementById("TL").style.backgroundColor = "rgb(110, 110, 110)";
@@ -30,7 +58,3 @@ function resetColours() {
     document.getElementById("O").style.backgroundColor = "rgb(110, 110, 110)";
     document.getElementById("VG").style.backgroundColor = "rgb(110, 110, 110)";
 }
-while (true) {
-    requestAnimationFrame(f);
-}
-
