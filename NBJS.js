@@ -8,7 +8,6 @@
                           navigator.msGetUserMedia;
 
     if (navigator.mediaDevices.getUserMedia) {
-        //works here
         navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
             // 2048 sample buffer, 1 channel in, 1 channel out  
             var processor = ctx.createScriptProcessor(16384, 1, 1)
