@@ -39,7 +39,7 @@
                 var elapsedTime = nowTime - lastChangeTime
 
                 console.log("Elapsed Time ---- ", elapsedTime)
-                console.log("Active Element --------------   ", activeElement)
+                //console.log("Active Element --------------   ", activeElement)
                 if ((elapsedTime > 5000) || (activeElement == "VG" && rms > 1) || (activeElement == "O" && rms > 2) || (activeElement == "N" && rms > 3) || (activeElement == "L" && rms > 4)) {
                     resetColours()
                     if (rms > 4) { document.getElementById("TL").style.backgroundColor = "rgb(255, 0, 0)"; activeElement = "TL" }
