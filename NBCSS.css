@@ -1,6 +1,6 @@
 textarea {
     font-family: Tahoma, Verdana, sans-serif;
-    height: 20vh;
+    height: 19.5vh;
     width: 100vw;
     border-width: 1px;
     font-size: 10vh;
@@ -20,6 +20,22 @@ textarea {
 body{
     margin: 0;
     padding: 0;
+}
+
+footer {
+    font-family: Tahoma, Verdana, sans-serif;
+    height: 2.5vh;
+    width: 100vw;
+    border-width: 1px;
+    font-size: 2vh;
+    line-height: 2.5vh;
+    margin: 0;
+    padding: 0;
+    border-color: black;
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: lightgrey;
 }
 #TL {background-color: rgb(255, 0, 0);}
 #L {background-color: rgb(255, 140, 0);}
