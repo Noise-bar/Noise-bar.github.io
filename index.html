@@ -13,11 +13,20 @@
     <title>NoiseBar</title>
 </head>
 <body>
+    <div id="slidecontainer">
+        <p id="sensitivity">Sensitivity: </p>
+        <input type="range" min="10" max="500" value="100" step="10" class="slider" id="myRange">
+        <p>Value: <span id="demo"></span></p>
+    </div>
     <textarea readonly id="TL">Too Loud!</textarea>
     <textarea readonly id="L">Loud!</textarea>
     <textarea readonly id="N">Noisy!</textarea>
     <textarea readonly id="O">Okay!</textarea>
     <textarea readonly id="VG">Very Good!</textarea>
-    <footer>&copy; Copyright <script>var currentYear = new Date().getFullYear();document.write(currentYear);</script> Oliver Smith</footer>
+    <footer>
+        &copy; Copyright
+        <script>var currentYear = new Date().getFullYear(); document.write(currentYear);</script>
+        Oliver Smith
+    </footer>
 </body>
 </html>

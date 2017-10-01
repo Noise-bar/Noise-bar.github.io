@@ -30,7 +30,7 @@
                   , rms
                 while (i < len) total += Math.abs(input[i++])
                 rms = Math.sqrt(total / len)
-                rms = rms * 10
+                rms = rms * 10 * sensitivity
                 rms = Math.round(rms * 10) / 10
 
                 console.log(rms)                
@@ -65,4 +65,15 @@ function resetColours() {
     document.getElementById("N").style.backgroundColor = "rgb(110, 110, 110)";
     document.getElementById("O").style.backgroundColor = "rgb(110, 110, 110)";
     document.getElementById("VG").style.backgroundColor = "rgb(110, 110, 110)";
+}
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+var sensitivity = slider.value / 100;
+output.innerHTML = slider.value;
+
+
+slider.oninput = function () {
+    sensitivity = this.value / 100;
+    output.innerHTML = this.value;
 }
