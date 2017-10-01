@@ -40,10 +40,10 @@ footer {
 
 p {
 	font-family: Tahoma, Verdana, sans-serif;
-    height: 4vh;
+    height: 3vh;
     width: 100%;
-	font-size: 3.75vh;
-    line-height: 4vh;
+	font-size: 2.75vh;
+    line-height: 3vh;
     margin: 0;
     padding: 0;
 	opacity: 0.6;
@@ -55,8 +55,8 @@ p {
     width: 25vw;
 	opacity: 0.6;
 	position: absolute;
-	top: 3vh;
-	right: 3vh;
+	top: 0.5vh;
+	right: 0.5vh;
 	display: block;
 }
 

@@ -68,7 +68,7 @@ function resetColours() {
 }
 
 var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
+var output = document.getElementById("value");
 var sensitivity = slider.value / 100;
 output.innerHTML = slider.value;
 
