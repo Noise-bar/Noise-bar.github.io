@@ -52,7 +52,7 @@ p {
 }
 
 #slidecontainer {
-    width: 25vw;
+    width: 36vw;
 	opacity: 0.6;
 	position: absolute;
 	top: 0.5vh;
@@ -62,16 +62,16 @@ p {
 
 .slider {
     -webkit-appearance: none;
-    width: 100%;
+    width: 80%;
     height: 15px;
     border-radius: 5px;
-    background: #d3d3d3;
+    background-color: #d3d3d3;
     outline: none;
     opacity: 0.6;
     -webkit-transition: .2s;
     transition: opacity .2s;
-	text-align: right;
 	background: #000;
+	margin-left: 20%;
 }
 
 #slidecontainer:hover {
